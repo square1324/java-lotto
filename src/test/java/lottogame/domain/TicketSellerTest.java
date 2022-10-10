@@ -16,7 +16,7 @@ import lottogame.domain.strategy.RangeLottoNumberPickerStrategy;
 import lottogame.domain.user.User;
 
 class TicketSellerTest {
-    @ParameterizedTest(name = "사용자가 티켓을 사고 남은 잔돈과 티켓 수를 검증한다, 소유액: {0}, 티켓 수: {1}, 잔액: {2}")
+    @ParameterizedTest(name = "사용자가 티켓을 사고 남은 잔돈과 티켓 수를 검증한다, 소유액: {0}, 잔액: {2}, 수동 티켓: {3}, 자동 티켓: {4}")
     @MethodSource("provideLottoTicketSource")
     void sellAutomaticTicketTo(int money, List<LottoNumbers> manualLottoNumbers, int change, int manualCount, int automaticCount) {
         User user = new User(new Money(money), manualLottoNumbers.size(), TicketSeller.getTicketPrice());
@@ -31,7 +31,7 @@ class TicketSellerTest {
         return Stream.of(
             Arguments.of(12005, getRandomLottoNumbers(3), 5, 3, 12 - 3),
             Arguments.of(10000, getRandomLottoNumbers(5), 0, 5, 10 - 5),
-            Arguments.of(12, getRandomLottoNumbers(0), 12, 0, 0)
+            Arguments.of(1012, getRandomLottoNumbers(0), 12, 0, 1)
         );
     }
 
