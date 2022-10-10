@@ -32,7 +32,7 @@ public class LottoTicket {
         if (o == null || getClass() != o.getClass())
             return false;
         LottoTicket that = (LottoTicket)o;
-        return Objects.equals(ticketId, that.ticketId) && Objects.equals(lottoNumbers, that.lottoNumbers);
+        return Objects.equals(ticketId, that.ticketId);
     }
 
     @Override
